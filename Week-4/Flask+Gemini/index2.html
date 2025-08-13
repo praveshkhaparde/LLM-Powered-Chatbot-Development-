@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Gemini Chatbot</title>
+    <style>
+      .old_messages {
+        border-right: 0.15em solid #333;
+        font-family: monospace;
+      }
+      /* #chat {
+        display: flex;
+        flex-direction: column;
+      } */
+
+      .multi-typewriter {
+        font-family: monospace;
+        color: transparent;
+        background: linear-gradient(90deg, black 0, black 5px, transparent 0)
+            /* caret */,
+          linear-gradient(black 0, black 0); /* reveal layer */
+        background-clip: text, text;
+        -webkit-background-clip: text, text;
+        background-repeat: no-repeat;
+        background-size: 5px 1em, 0 100%;
+        animation: b 1s steps(1) infinite,
+          t calc(var(--n) * 0.001s) steps(var(--n)) forwards;
+      }
+
+      /* Reveal animation */
+      @keyframes t {
+        from {
+          background-size: 0 100%;
+        }
+        to {
+          background-size: 100% 100%;
+        }
+      }
+
+      /* Caret blink */
+      @keyframes b {
+        50% {
+          background-position: -100% 0, 0 0;
+        }
+      }
+
+      textarea[name="message"] {
+        width: 90%;
+        /* margin-left: 10%;
+        margin-right: 10%; */
+        resize: vertical; /* Allow vertical resizing only */
+        box-sizing: border-box; /* Include padding & border in width */
+        min-height: 4em; /* Comfortable default height */
+        border-right: 0.15em solid #333;
+        font-family: monospace;
+        font-size: 1rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gemini Chatbot</h1>
+    <div id="chat" class="old_messages">
+      {% for m in history %} {% if not loop.last or m.role == 'user' %}
+      <div>
+        <b>{{ 'You:' if m.role=='user'}}</b> {{ m.parts[0].text | safe }}
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+    {% if reply %}
+    <div class="multi-typewriter" style="--n: {{ reply|length }};">
+      {{ reply | safe }}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+      <textarea
+        name="message"
+        rows="4"
+        placeholder="Type your message..."
+        required
+        autocomplete="off"
+        style="width: 100%; resize: vertical; box-sizing: border-box"
+      ></textarea>
+      <button>Send</button>
+    </form>
+    <p><a href="{{ url_for('clear') }}">🗑️ Clear Chat</a></p>
+    <p>
+      <a href="{{ url_for('clear_chat_history')}}">Delete Chat History :(</a>
+    </p>
+  </body>
+</html>

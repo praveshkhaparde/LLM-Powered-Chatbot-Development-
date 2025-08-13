@@ -1,0 +1,77 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* A more modern sans-serif */
+  margin: 0;
+  padding: 20px;
+  background-color: #f9f9f9; /* Very light gray background */
+  color: #444; /* Slightly darker text color */
+  line-height: 1.6; /* Improved line spacing for readability */
+}
+
+h1 {
+  text-align: center;
+  color: #2980b9; /* A slightly more sophisticated blue */
+  margin-bottom: 30px; /* More space below the heading */
+  font-size: 2.2em; /* Slightly larger and more modern heading size */
+  font-weight: 500; /* Lighter font weight for a cleaner look */
+}
+
+#chat {
+  border: 1px solid #ddd; /* Softer border color */
+  padding: 15px; /* Increased padding for more visual breathing room */
+  margin-bottom: 20px; /* More margin below the chat window */
+  height: 350px; /* Increased height for more message display */
+  overflow-y: auto; /* Use 'auto' so scrollbar appears only when needed */
+  background-color: #fff;
+  border-radius: 8px; /* More rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#chat p {
+  margin: 8px 0; /* Increased vertical spacing between messages */
+  padding: 10px; /* Padding inside messages */
+  border-radius: 8px; /* Rounded message corners */
+  background-color: #f2f2f2; /* Lighter background for messages */
+  word-break: break-word; /* Prevents long words from breaking the layout */
+}
+
+#chat p:nth-child(even) {
+  background-color: #f8f8f8; /* Slightly different background for even messages */
+}
+
+#chat p b {
+  color: #2980b9; /* Use same blue as heading */
+  font-weight: 600; /* Slightly bolder */
+}
+
+textarea {
+  width: calc(100% - 22px); /* Account for padding and border */
+  padding: 12px; /* Increased padding */
+  margin-bottom: 20px; /* More margin below the textarea */
+  border: 1px solid #ddd; /* Softer border color */
+  border-radius: 8px; /* Rounded corners */
+  resize: vertical;
+  font-size: 1rem; /* Good default font size */
+  box-sizing: border-box; /* Makes width calculation more intuitive */
+}
+
+button {
+  padding: 12px 24px; /* More padding */
+  background-color: #3498db; /* A brighter blue */
+  color: #fff;
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease; /* Add transform for a slight click effect */
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: #2980b9; /* A darker shade on hover */
+}
+
+button:active {
+  transform: translateY(1px); /* Push the button down slightly when clicked */
+  box-shadow: none; /* Remove the shadow when clicked */
+}

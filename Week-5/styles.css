@@ -1,0 +1,90 @@
+body {
+  background: url("background-image-ugac.jpg") center/cover no-repeat;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  width: 70%;
+  max-width: 90vw;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.msg {
+  margin: 8px 0;
+  display: flex;
+}
+
+.msg.user {
+  justify-content: flex-end;
+}
+
+.msg.bot {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.msg.user .bubble {
+  background: #007bff;
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.bot .bubble {
+  background: #e5e5ea;
+  color: #333;
+  border-bottom-left-radius: 4px;
+}
+
+.input-bar {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.input-bar input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  font-size: 16px;
+  border-radius: 0 0 0 8px;
+}
+
+.input-bar button {
+  padding: 12px 16px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 0 0 8px 0;
+}
+
+.input-bar input:focus {
+  outline: none;
+}
+
+.input-bar button:active {
+  opacity: 0.9;
+}
